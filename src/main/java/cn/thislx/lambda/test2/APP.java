@@ -1,6 +1,5 @@
 package cn.thislx.lambda.test2;
 
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -64,6 +63,6 @@ public class APP {
             return false;
         };
 
-        Persion persion = new Persion();
+        Person1 persion1 = new Person1();
     }
 }

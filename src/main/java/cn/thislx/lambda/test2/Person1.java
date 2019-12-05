@@ -16,7 +16,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Persion {
+public class Person1 {
     private String name;
 
     private int age;
