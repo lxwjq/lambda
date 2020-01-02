@@ -1,4 +1,4 @@
-package cn.thislx.lambda.test2;
+package cn.thislx.lambda.function;
 
 /**
  * 测试方法

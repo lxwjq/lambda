@@ -1,6 +1,6 @@
-package cn.thislx.lambda.test1.impl;
+package cn.thislx.lambda.test.impl;
 
-import cn.thislx.lambda.test1.FunctionInterfaceServer;
+import cn.thislx.lambda.test.FunctionInterfaceServer;
 
 /**
  * 函数式接口实现类

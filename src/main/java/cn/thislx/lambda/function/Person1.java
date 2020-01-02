@@ -1,4 +1,4 @@
-package cn.thislx.lambda.test2;
+package cn.thislx.lambda.function;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package cn.thislx.lambda.test1;
+package cn.thislx.lambda.test;
 
 /**
  * 函数式接口（含义：有且仅有一个抽象方法，但可以有多个非抽象方法的接口）

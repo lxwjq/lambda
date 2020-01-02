@@ -1,6 +1,5 @@
-package cn.thislx.lambda.test3;
+package cn.thislx.lambda.methodreference;
 
-import cn.thislx.lambda.test2.Person1;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * 测试启动类
@@ -22,7 +22,7 @@ import java.util.List;
  * @version V1.0
  * @date 2019/12/3 17:05
  **/
-public class APP {
+public class MethodReferenceTest {
 
     public static void main(String[] args) {
         List<Person> personList = new ArrayList<>();
@@ -30,6 +30,8 @@ public class APP {
         personList.add(new Person("wangwu", "女", 40));
         personList.add(new Person("lisi", "男", 30));
         personList.add(new Person("zhaoliu", "女", 26));
+
+        Object obj = new Object();
 
         // 原始版
         Collections.sort(personList, new Comparator<Person>() {
@@ -61,6 +63,8 @@ public class APP {
         Person person = iPerson.initPerson("tet", "男", 2);
         System.out.println(person);
 
+        Supplier<String> sup = "hello"::toUpperCase;//方法引用赋给一个函数式接口
+        sup.get();
     }
 }
 

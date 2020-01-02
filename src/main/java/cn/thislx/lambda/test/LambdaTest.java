@@ -1,6 +1,6 @@
-package cn.thislx.lambda.test1;
+package cn.thislx.lambda.test;
 
-import cn.thislx.lambda.test1.impl.FunctionInterfaceServerImpl;
+import cn.thislx.lambda.test.impl.FunctionInterfaceServerImpl;
 
 import java.util.*;
 
@@ -14,7 +14,7 @@ import java.util.*;
  * @version V1.0
  * @date 2019/11/29 14:56
  **/
-public class APP {
+public class LambdaTest {
 
     private static List<String> staticList = Arrays.asList("my", "name", "is", "uber", "and", "uc");
 
