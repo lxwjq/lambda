@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class TestStreamAPI04 {
 
     public static void main(String[] args) {
-        fn13();
+        toMapTest();
     }
 
     static List<Employee> emps = Arrays.asList(
@@ -25,6 +25,7 @@ public class TestStreamAPI04 {
     );
 
     //3. 终止操作
+
     /**
      * 规约
      * reduce(T identity, BinaryOperator) / reduce(BinaryOperator)
@@ -58,7 +59,7 @@ public class TestStreamAPI04 {
      * collect——将流转换为其他形式。
      * 接收一个 Collector接口的实现，用于给Stream中元素做汇总的方法
      */
-    // 用List接收
+    // 用List接收 默认ArrayList
     public static void fn4() {
         List<String> nameList = emps.stream()
                 .map(Employee::getName)
@@ -66,7 +67,7 @@ public class TestStreamAPI04 {
         System.out.println(nameList);
     }
 
-    // 用Set接收
+    // 用Set接收 默认HastSet
     public static void fn5() {
         Set<String> nameSet = emps.stream()
                 .map(Employee::getName)
@@ -82,12 +83,6 @@ public class TestStreamAPI04 {
         System.out.println(nameTreeSet);
     }
 
-    // 计数
-    public static void fn7() {
-        Long count = emps.stream()
-                .collect(Collectors.counting());
-        System.out.println(count);
-    }
 
     // 求均值
     public static void fn8() {
@@ -103,20 +98,6 @@ public class TestStreamAPI04 {
         System.out.println(sum);
     }
 
-    // 最大值
-    public static void fn10() {
-        Optional<Employee> optional = emps.stream()
-                .collect(Collectors.maxBy((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary())));
-        System.out.println(optional.get());
-    }
-
-    // 最小值
-    public static void fn11() {
-        Optional<Double> min = emps.stream()
-                .map(Employee::getSalary)
-                .collect(Collectors.minBy(Double::compare));
-        System.out.println(min.get());
-    }
 
     // 单列分组
     public static void fn12() {
@@ -146,5 +127,27 @@ public class TestStreamAPI04 {
         System.out.println(listMap);
     }
 
+    // 拼接
+    public static void joiningTest() {
+        List<String> list = Arrays.asList("123", "456", "789", "1101", "212121121", "asdaa", "3e3e3e", "2321eew");
+        // 无参方法
+        String s = list.stream().collect(Collectors.joining());
+        System.out.println(s);
+        // 指定连接符
+        String ss = list.stream().collect(Collectors.joining("-"));
+        System.out.println(ss);
+        // 指定连接符和前后缀
+        String sss = list.stream().collect(Collectors.joining("-", "S", "E"));
+        System.out.println(sss);
+    }
+
+    // 转Map
+    public static void toMapTest() {
+        List<String> list = Arrays.asList("123", "456", "789", "1101", "212121121", "asdaa", "3e3e3e", "2321eew");
+        Map<String, String> map = list.stream().limit(3).collect(Collectors.toMap(e -> e.substring(0, 1), e -> e));
+        Map<String, String> map1 = list.stream().collect(Collectors.toMap(e -> e.substring(0, 1), e -> e, (a, b) -> b));
+        Map<String, String> map2 = list.stream().collect(Collectors.toMap(e -> e.substring(0, 1), e -> e, (a, b) -> b, HashMap::new));
+        System.out.println(map.toString() + "\n" + map1.toString() + "\n" + map2.toString());
+    }
 
 }
